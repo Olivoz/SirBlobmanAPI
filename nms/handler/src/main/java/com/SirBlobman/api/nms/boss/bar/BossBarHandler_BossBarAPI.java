@@ -15,6 +15,12 @@ public class BossBarHandler_BossBarAPI extends BossBarHandler {
     public BossBarHandler_BossBarAPI(JavaPlugin plugin) {
         super(plugin);
         this.bossBarMap = new HashMap<>();
+
+        PluginManager pluginManager = Bukkit.getPluginManager();
+        if(!pluginManager.isPluginEnabled("BossBarAPI")) {
+            Logger logger = plugin.getLogger();
+            logger.severe("BossBarAPI is not installed! All boss bars will be sent as chat messages.");
+        }
     }
     
     @Override
@@ -31,9 +37,6 @@ public class BossBarHandler_BossBarAPI extends BossBarHandler {
             this.bossBarMap.put(uuid, apiWrapper);
             return apiWrapper;
         }
-        
-        Logger logger = getPlugin().getLogger();
-        logger.warning("BossBarAPI is not installed, sending boss bar for '" + player.getName() + "' to chat.");
         
         BossBarWrapper fallbackWrapper = new BossBarWrapper_Fallback(player);
         this.bossBarMap.put(uuid, fallbackWrapper);
