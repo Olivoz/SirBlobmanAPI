@@ -145,10 +145,18 @@
             <scope>compile</scope>
         </dependency>
 		
-        <!-- NMS 1.16.2 -->
+        <!-- NMS 1.16.3 -->
         <dependency>
             <groupId>com.SirBlobman.api.nms</groupId>
             <artifactId>1_16_R2</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+		
+        <!-- NMS 1.16.4 -->
+        <dependency>
+            <groupId>com.SirBlobman.api.nms</groupId>
+            <artifactId>1_16_R3</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
